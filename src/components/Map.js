@@ -8,8 +8,7 @@ export default class Map extends Component {
         
         this.state = {
             message : []
-        }
-        
+        }  
     }
     
     componentWillMount(){
@@ -28,12 +27,11 @@ export default class Map extends Component {
                 console.log(error);
             });
         }, 3000);
-        
     }
     
     renderPost = () => {
         return this.state.message.map(post => {
-            return <p key={post.id}>{post.title} <br/> {post.body} </p>    
+            return <p key={post.id}>{post.title} <br/> {post.body} º</p> 
         })
     }
     
@@ -45,8 +43,31 @@ export default class Map extends Component {
             <div>
                 {this.renderPost()}
             </div>
+            /*<div>
+                <Content
+                    dataProp = {this.state.message} 
+                    updateStateProp = {this.renderPost()}>
+                </Content>
+            </div>*/
+            
         );
     }
-    
 }
 
+const Content= (props) => {
+
+    var listPost = [];
+    for (let index = 0; index < props.dataProp.length; index++) {
+        //console.log(props.dataProp[index]['title']);
+        //console.log(props.dataProp[index]['body']);
+        listPost.push(props.dataProp[index]['title'] + props.dataProp[index]['body'] + <br/>);
+    }
+
+    console.log(listPost);
+
+    return (
+        <div>
+                {listPost}             
+        </div>
+    )
+}
