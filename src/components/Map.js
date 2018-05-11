@@ -40,15 +40,15 @@ export default class Map extends Component {
             return <h1>loading...</h1>
         }
         return(
-            <div>
-                {this.renderPost()}
-            </div>
             /*<div>
+                {this.renderPost()}
+            </div>*/
+            <div>
                 <Content
                     dataProp = {this.state.message} 
                     updateStateProp = {this.renderPost()}>
                 </Content>
-            </div>*/
+            </div>
             
         );
     }
